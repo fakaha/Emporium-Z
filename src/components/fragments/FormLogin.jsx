@@ -1,13 +1,34 @@
-import React from 'react'
-import { InputForm } from '../elements/Input'
-import { Button } from '../elements/Button'
+import React from "react";
+import { InputForm } from "../elements/Input";
+import { Button } from "../elements/Button";
 
 export const FormLogin = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
+    if (event.target.email.value !== "" && event.target.password.value !== "") {
+      localStorage.setItem("email", event.target.email.value);
+      localStorage.setItem("password", event.target.password.value);
+      console.log("login");
+      window.location.href = "/products";
+    }
+  };
   return (
-    <form action="email">
-        <InputForm label='Email' type='email' placeholder='example@gmail.com' name='email'/>
-        <InputForm label='Password' type='password' placeholder='password' name='email'/>
-        <Button variant='bg-blue-600 w-full'>Login</Button>
+    <form onSubmit={handleLogin}>
+      <InputForm
+        label="Email"
+        type="email"
+        placeholder="example@gmail.com"
+        name="email"
+      />
+      <InputForm
+        label="Password"
+        type="password"
+        placeholder="password"
+        name="password"
+      />
+      <Button variant="bg-blue-600 w-full" type="submit">
+        Login
+      </Button>
     </form>
-  )
-}
+  );
+};
