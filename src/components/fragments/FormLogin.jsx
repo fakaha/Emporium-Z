@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { InputForm } from "../elements/Input";
 import { Button } from "../elements/Button";
 
@@ -10,8 +10,15 @@ export const FormLogin = () => {
       localStorage.setItem("password", event.target.password.value);
       console.log("login");
       window.location.href = "/products";
+    }else{
+      alert("Email and Password is required")
     }
   };
+
+  const emailRef = useRef(null);
+  useEffect(() => {
+    emailRef.current.focus();
+  }, [])
   return (
     <form onSubmit={handleLogin}>
       <InputForm
@@ -19,6 +26,7 @@ export const FormLogin = () => {
         type="email"
         placeholder="example@gmail.com"
         name="email"
+        ref={emailRef}
       />
       <InputForm
         label="Password"
