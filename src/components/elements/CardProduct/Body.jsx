@@ -9,7 +9,7 @@ export const Body = (props) => {
         <h5 className="text-xl font-semibold tracking-tight text-white">
           {name}
         </h5>
-        <p className="text-sm text-white">{children}</p>
+        <p className="text-sm text-white">{children.substring(0,100)}</p>
       </Link>
     </div>
   );
