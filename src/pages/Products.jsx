@@ -97,7 +97,7 @@ export const ProductsPage = () => {
                     <td>
                       {product?.price?.toLocaleString("id-ID", {
                         style: "currency",
-                        currency: "IDR",
+                        currency: "USD",
                         maximumFractionDigits: 0,
                       })}
                     </td>
@@ -105,7 +105,7 @@ export const ProductsPage = () => {
                     <td>
                       {(item.qty * product?.price).toLocaleString("id-ID", {
                         style: "currency",
-                        currency: "IDR",
+                        currency: "USD",
                         maximumFractionDigits: 0,
                       })}
                     </td>
@@ -120,7 +120,7 @@ export const ProductsPage = () => {
                   <b>
                     {totalPrice.toLocaleString("id-ID", {
                       style: "currency",
-                      currency: "IDR",
+                      currency: "USD",
                       maximumFractionDigits: 0,
                     })}
                   </b>
