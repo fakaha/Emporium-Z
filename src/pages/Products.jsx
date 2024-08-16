@@ -5,11 +5,13 @@ import { Body } from "../components/elements/CardProduct/Body";
 import { Footer } from "../components/elements/CardProduct/Footer";
 import { Button } from "../components/elements/Button";
 import { getProduct } from "../services/products/ProductServices";
+import { getMe } from "../services/auth/AuthServices";
 
 export const ProductsPage = () => {
   const [cart, setCart] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
   const [products, setProducts] = useState([])
+  const [user, setUser] = useState({})
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem('cart')) || [])
   }, [])
@@ -33,6 +35,15 @@ export const ProductsPage = () => {
     }
   }, [cart, products])
 
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      getMe((data) => {
+        setUser(data);
+      });
+    } else {
+      window.location.href = "/login";
+    }
+  }, []);
 
   const handleAddToCart = (id) => {
     if(cart.find(item => item.id === id)) {
@@ -44,16 +55,14 @@ export const ProductsPage = () => {
     }
   }
 
-  const email = localStorage.getItem("email");
   const handleLogout = () => {
-    localStorage.removeItem("email");
-    localStorage.removeItem("password");
+    localStorage.removeItem("token");
     window.location.href = "/login";
   };
   return (
     <>
       <div className="flex justify-end h-20 bg-blue-600 text-white items-center px-10">
-        {email}
+        {user.name}
         <Button variant="ml-5 bg-black" onClick={handleLogout}>
           Logout
         </Button>
