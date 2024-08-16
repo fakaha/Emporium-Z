@@ -8,8 +8,6 @@ export const FormLogin = () => {
   const handleLogin = (event) => {
     event.preventDefault();
     if (event.target.email.value !== "" && event.target.password.value !== "") {
-      // localStorage.setItem("email", event.target.email.value);
-      // localStorage.setItem("password", event.target.password.value);
       const data = {
         email: event.target.email.value,
         password: event.target.password.value,
