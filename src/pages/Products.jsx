@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CardProduct } from "../components/fragments/CardProduct";
 import { Header } from "../components/elements/CardProduct/Header";
 import { Body } from "../components/elements/CardProduct/Body";
@@ -6,9 +6,11 @@ import { Footer } from "../components/elements/CardProduct/Footer";
 import { getProduct } from "../services/products/ProductServices";
 import { TableCart } from "../components/fragments/TableCart";
 import { Navbar } from "../components/layouts/Navbar";
+import { DarkMode } from "../context/DarkMode";
 
 export const ProductsPage = () => {
   const [products, setProducts] = useState([])
+  const { isDarkMode, setIsDarkMode } = useContext(DarkMode)
 
   useEffect(() => {
     getProduct((item) => {
@@ -19,7 +21,7 @@ export const ProductsPage = () => {
   return (
     <>
       <Navbar />
-      <div className="flex justify-center py-5">
+      <div className={`flex justify-center py-5 ${isDarkMode && "bg-slate-900"}`}>
         <div className="w-4/6 flex flex-wrap">
           {products.length > 0 &&
             products.map((product) => (
