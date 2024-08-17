@@ -5,7 +5,6 @@ import { Body } from "../components/elements/CardProduct/Body";
 import { Footer } from "../components/elements/CardProduct/Footer";
 import { Button } from "../components/elements/Button";
 import { getProduct } from "../services/products/ProductServices";
-import { getMe } from "../services/auth/AuthServices";
 import { useLogin } from "../hooks/useLogin";
 
 export const ProductsPage = () => {
@@ -63,7 +62,7 @@ export const ProductsPage = () => {
           {products.length > 0 &&
             products.map((product) => (
               <CardProduct key={product.id}>
-                <Header image={product.images} />
+                <Header image={product.images} id={product.id}/>
                 <Body name={product.title}>{product.description}</Body>
                 <Footer
                   price={product.price}
