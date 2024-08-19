@@ -24,6 +24,7 @@ export const Navbar = () => {
   }, [cart]);
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("cart")
     window.location.href = "/login";
   };
   return (
