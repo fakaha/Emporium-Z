@@ -10,6 +10,16 @@ export const login = (data, callback) => {
     })
 }
 
+export const register = (data, callback) => {
+    axios.post('https://api.escuelajs.co/api/v1/users/', data)
+    .then((res) => {
+        callback(true, res.data.access_token)
+    })
+    .catch((err) => {
+        callback(false, err.response.data.message);
+    })
+}
+
 export const getMe = (callback) => {
     axios.get('https://api.escuelajs.co/api/v1/auth/profile',
         {
