@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      "chakra-petch" : [ "Chakra Petch", "sans-serif"],
+      "poppins" : [ "Poppins", "sans-serif"],
+    }
   },
   plugins: [],
 }

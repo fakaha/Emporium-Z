@@ -13,7 +13,7 @@ root.render(
     <Provider store={store}>
       <DarkModeContextProvider>
         <TotalPriceProvider>
-          <App />
+          <App c/>
         </TotalPriceProvider>
       </DarkModeContextProvider>
     </Provider>
