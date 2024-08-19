@@ -44,7 +44,7 @@ export const Home = () => {
         {category.map((item) => (
           <div className={`w-full max-w-xs rounded-lg shadow mx-2 my-2 flex flex-col justify-between border border-gray-800 ${isDarkMode && "bg-gray-800 border border-gray-700 text-white"}`} key={item.id}>
             <p className="text-center pt-5">{item.name}</p>
-            <img className="p-8 object-cover h-60" src={item.image} alt="category" />
+            <img className="p-8 object-cover h-60" src={item.image} alt="category image" />
           </div>
         ))}
       </div>
