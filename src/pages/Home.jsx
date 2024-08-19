@@ -29,7 +29,7 @@ export const Home = () => {
           >
             Login
           </Button>
-          <Button onClick={() => setIsDarkMode(!isDarkMode)} className="text-white">{isDarkMode ? "Light" : "Dark"}</Button>
+          <Button onClick={() => {setIsDarkMode(!isDarkMode); localStorage.setItem("isDarkMode", !isDarkMode);}} className="text-white">{isDarkMode ? "Light" : "Dark"}</Button>
         </div>
       </div>
       <div className="flex mt-4">
@@ -39,6 +39,7 @@ export const Home = () => {
           <Button onClick={() => (window.location.href = "/products")} className="text-black">Lihat Produk</Button>
         </div>
       </div>
+      <h3 className="ml-40 text-2xl mt-8">Kategori Produk</h3>
       <div className="flex flex-wrap gap-5 justify-center mt-8">
         {category.map((item) => (
           <div className={`w-full max-w-xs rounded-lg shadow mx-2 my-2 flex flex-col justify-between border border-gray-800 ${isDarkMode && "bg-gray-800 border border-gray-700 text-white"}`} key={item.id}>
