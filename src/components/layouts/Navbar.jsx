@@ -49,7 +49,6 @@ export const Navbar = () => {
             setIsDarkMode(!isDarkMode);
             localStorage.setItem("isDarkMode", !isDarkMode);
           }}
-          className="bg-black text-white"
         >
           {isDarkMode ? "Light" : "Dark"}
         </Button>

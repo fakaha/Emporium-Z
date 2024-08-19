@@ -19,3 +19,13 @@ export const getDetailProduct = (id, callback) => {
         console.log(err);
     })
 }
+
+export const getCategory = (callback) => {
+    axios.get('https://api.escuelajs.co/api/v1/categories')
+    .then((response) => {
+        callback(response.data)
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+}
