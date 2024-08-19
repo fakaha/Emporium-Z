@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { DarkMode } from "../../context/DarkMode";
 import { useTotalPrice, useTotalPriceDispatch } from "../../context/TotalPriceContext";
@@ -25,7 +25,7 @@ export const TableCart = (props) => {
 
       localStorage.setItem("cart", JSON.stringify(cart));
     }
-  }, [cart, products]);
+  }, [cart, products, dispatch]);
   return (
     <table className={`text-left table-auto border-separate border-spacing-x-2 ${isDarkMode && 'text-white'}`}>
       <thead>

@@ -10,7 +10,7 @@ import { DarkMode } from "../context/DarkMode";
 
 export const ProductsPage = () => {
   const [products, setProducts] = useState([])
-  const { isDarkMode, setIsDarkMode } = useContext(DarkMode)
+  const { isDarkMode } = useContext(DarkMode)
 
   useEffect(() => {
     getProduct((item) => {

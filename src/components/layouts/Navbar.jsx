@@ -34,7 +34,7 @@ export const Navbar = () => {
         Item : {totalCart} | Price : {total.toLocaleString("id-ID", {style: "currency", currency: "USD", maximumFractionDigits: 0,})}
       </div>
       <Button
-        onClick={() => setIsDarkMode(!isDarkMode)}
+        onClick={() => {setIsDarkMode(!isDarkMode); localStorage.setItem("isDarkMode", !isDarkMode)}}
         className="bg-black text-white"
       >
         {isDarkMode ? "Light" : "Dark"}
