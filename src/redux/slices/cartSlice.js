@@ -6,6 +6,9 @@ const cartSlice = createSlice({
     data: JSON.parse(localStorage.getItem("cart")) || [],
   },
   reducers: {
+    clearCart: (state) => {
+      state.data = [];
+    },
     addToCart: (state, action) => {
       const itemInCart = state.data.find(
         (item) => item.id === action.payload.id
@@ -34,5 +37,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, subtractToCart } = cartSlice.actions;
+export const { clearCart, addToCart, subtractToCart } = cartSlice.actions;
 export default cartSlice.reducer;

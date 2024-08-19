@@ -7,6 +7,7 @@ import {
 } from "../../context/TotalPriceContext";
 import { Button } from "../elements/Button";
 import { addToCart, subtractToCart } from "../../redux/slices/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 export const TableCart = (props) => {
   const { products } = props;
@@ -15,6 +16,7 @@ export const TableCart = (props) => {
   const dispatch = useTotalPriceDispatch();
   const { total } = useTotalPrice();
   const dispatchCart = useDispatch();
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (products.length > 0 && cart.length > 0) {
@@ -77,7 +79,7 @@ export const TableCart = (props) => {
                       onClick={() =>
                         dispatchCart(addToCart({ id: item.id, qty: 1 }))
                       }
-                      className="px-1 rounded-sm mx-2 bg-blue-600"
+                      className="px-1 rounded-sm mx-2 bg-blue-600 text-white"
                     >
                       +
                     </button>
@@ -85,7 +87,7 @@ export const TableCart = (props) => {
                       onClick={() =>
                         dispatchCart(subtractToCart({ id: item.id, qty: 1 }))
                       }
-                      className="px-1 rounded-sm bg-red-600"
+                      className="px-1 rounded-sm bg-red-600 text-white"
                     >
                       -
                     </button>
@@ -121,7 +123,7 @@ export const TableCart = (props) => {
             {cart.length <= 0 ? (
               "Cart is empty"
             ) : (
-              <Button variant="bg-green-600 mt-5">Checkout</Button>
+              <Button onClick={() => {localStorage.removeItem('cart'); navigate('/payment')}} variant="bg-green-600 mt-5">Checkout</Button>
             )}
           </td>
         </tr>
