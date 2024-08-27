@@ -14,7 +14,7 @@ export const Payment = () => {
   return (
     <div className={`h-screen ${isDarkMode && "bg-slate-900"}`}>
       <Navbar />
-      <div className={`flex max-w-5xl justify-center items-center mt-14 mx-auto rounded-lg gap-20 py-5 border border-gray-800 ${isDarkMode && "bg-gray-800"} `}>
+      <div className={`flex flex-col-reverse lg:flex-row max-w-5xl justify-center items-center mt-14 mx-auto rounded-lg gap-20 py-5 border border-gray-800 ${isDarkMode && "bg-gray-800"} `}>
         <div className={`flex flex-col ${isDarkMode && "text-white"}`}>
           <h1 className="text-3xl mb-4 font-medium">Congratulations !!!</h1>
           <p className="text-lg mb-2">Your payment has been successfully</p>

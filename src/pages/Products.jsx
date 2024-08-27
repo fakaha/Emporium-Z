@@ -21,8 +21,8 @@ export const ProductsPage = () => {
   return (
     <>
       <Navbar />
-      <div className={`flex justify-center py-5 ${isDarkMode && "bg-slate-900"}`}>
-        <div className="w-4/6 flex flex-wrap">
+      <div className={`flex lg:flex-row flex-col-reverse justify-center py-5 ${isDarkMode && "bg-slate-900"}`}>
+        <div className="lg:w-4/6 w-100 flex flex-wrap lg:justify-normal justify-center">
           {products.length > 0 &&
             products.map((product) => (
               <CardProduct key={product.id}>
@@ -32,7 +32,7 @@ export const ProductsPage = () => {
               </CardProduct>
             ))}
         </div>
-        <div className="w-2/6">
+        <div className="lg:w-2/6 w-100 m-auto lg:m-0">
           <h1 className="text-3xl font-bold text-blue-600 ml-2 mb-2">Cart</h1>
           <TableCart products={products} />
         </div>

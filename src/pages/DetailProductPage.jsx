@@ -13,7 +13,8 @@ export const DetailProductPage = () => {
     });
   }, [id]);
   return (
-    <div className="w-100 min-h-screen flex justify-center items-center">
+    <div className="w-100 min-h-screen flex justify-center items-center relative">
+      <button onClick={() => window.history.back()} className="absolute top-10 left-10 bg-black text-white px-3 rounded-lg">Back</button>
       {Object.keys(products).length > 0 && (
         <div className="flex font-sans max-w-xl">
           <div className="flex-none w-48 relative">
@@ -45,13 +46,13 @@ export const DetailProductPage = () => {
             <div className="flex space-x-4 mb-6 text-sm font-medium">
               <div className="flex-auto flex space-x-4">
                 <button
-                  className="h-10 px-6 font-semibold rounded-md bg-blue-600 text-white"
+                  className="h-10 px-4 font-semibold rounded-md bg-blue-600 text-white"
                   type="submit"
                 >
                   Buy now
                 </button>
                 <button
-                  className="h-10 px-6 font-semibold rounded-md border border-slate-200 text-slate-900"
+                  className="h-10 px-4 font-semibold rounded-md border border-slate-200 text-slate-900"
                   type="button"
                 >
                   Add to cart

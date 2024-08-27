@@ -15,26 +15,26 @@ export const Home = () => {
   }, [])
   return (
     <div className={`${isDarkMode && "bg-slate-900 border border-gray-700 text-white"}`}>
-      <div className="flex justify-between h-20 bg-blue-600 text-white items-center px-10">
+      <div className="flex justify-between h-20 bg-blue-600 text-white items-center px-8 lg:px-10">
         <h1
           onClick={() => (window.location.href = "/")}
-          className="font-chakra-petch text-3xl font-bold hover:cursor-pointer"
+          className="font-chakra-petch lg:text-3xl text-lg font-bold hover:cursor-pointer"
         >
           Emporium-Z
         </h1>
         <div className="flex items-center">
           <Button
             onClick={() => (window.location.href = "/login")}
-            variant="bg-black mr-5"
+            variant="bg-black lg:mr-5 mr-1"
           >
             Login
           </Button>
           <Button onClick={() => {setIsDarkMode(!isDarkMode); localStorage.setItem("isDarkMode", !isDarkMode);}} className="text-white">{isDarkMode ? "Light" : "Dark"}</Button>
         </div>
       </div>
-      <div className="flex mt-4">
-        <img className="w-3/5" src={banner} alt="Banner" />
-        <div className={`w-2/5 flex flex-col justify-center items-center gap-3 ${isDarkMode && "bg-gray-800 text-white"}`}>
+      <div className="flex mt-4 flex-col lg:flex-row">
+        <img className="lg:w-3/5 w-screen" src={banner} alt="Banner" />
+        <div className={`lg:w-2/5 flex flex-col justify-center items-center gap-3 ${isDarkMode && "bg-gray-800 text-white"}`}>
           <h2 className="text-2xl text-start px-8">Belanja Online Tanpa Ribet Emporium-Z Solusi Belanja Anda</h2>
           <Button onClick={() => (window.location.href = "/products")} className="text-black">Lihat Produk</Button>
         </div>
